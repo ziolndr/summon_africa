@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: summon-africa
+    runtime: docker
+    plan: starter
+    autoDeploy: true
+    healthCheckPath: /field/health

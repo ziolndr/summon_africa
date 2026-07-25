@@ -1,4 +1,13 @@
-FROM nginx:1.27-alpine
-COPY index.html /usr/share/nginx/html/index.html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . ./
+
+ENV PORT=10000
+EXPOSE 10000
+
+CMD ["sh", "-c", "python serve_field.py --host 0.0.0.0 --port ${PORT:-10000}"]

@@ -1,0 +1,350 @@
+[
+  {
+    "query": "Omoni Oboli TV",
+    "country": "Nigeria",
+    "types": [
+      "film",
+      "short",
+      "series"
+    ],
+    "url": "https://www.youtube.com/@omoniobolitv"
+  },
+  {
+    "query": "RuthKadiri247",
+    "country": "Nigeria",
+    "types": [
+      "film",
+      "short",
+      "series"
+    ],
+    "url": "https://www.youtube.com/channel/UCjcFNZE51DmSrGYBqixs0Ug"
+  },
+  {
+    "query": "Uchenna Mbunabo TV",
+    "country": "Nigeria",
+    "types": [
+      "film",
+      "short",
+      "series"
+    ],
+    "url": "https://www.youtube.com/channel/UCypAoMCRQuNL2RBwy-x4oQg"
+  },
+  {
+    "query": "Uche Montana TV",
+    "country": "Nigeria",
+    "types": [
+      "film",
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "Maurice Sam TV",
+    "country": "Nigeria",
+    "types": [
+      "film",
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "Biodun Stephen TV",
+    "country": "Nigeria",
+    "types": [
+      "film",
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "TNC Africa",
+    "country": "Nigeria",
+    "types": [
+      "film",
+      "short",
+      "series",
+      "documentary"
+    ]
+  },
+  {
+    "query": "NdaniTV",
+    "country": "Nigeria",
+    "types": [
+      "short",
+      "series",
+      "documentary",
+      "interview"
+    ]
+  },
+  {
+    "query": "REDTV Nigeria",
+    "country": "Nigeria",
+    "types": [
+      "short",
+      "series",
+      "documentary",
+      "interview"
+    ]
+  },
+  {
+    "query": "Accelerate TV Nigeria",
+    "country": "Nigeria",
+    "types": [
+      "short",
+      "series",
+      "documentary",
+      "interview"
+    ]
+  },
+  {
+    "query": "Mark Angel Comedy",
+    "country": "Nigeria",
+    "types": [
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "Taaooma",
+    "country": "Nigeria",
+    "types": [
+      "short"
+    ]
+  },
+  {
+    "query": "Mr Macaroni",
+    "country": "Nigeria",
+    "types": [
+      "short"
+    ]
+  },
+  {
+    "query": "Yawa Skits",
+    "country": "Nigeria",
+    "types": [
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "Broda Shaggi",
+    "country": "Nigeria",
+    "types": [
+      "short"
+    ]
+  },
+  {
+    "query": "KieKie TV",
+    "country": "Nigeria",
+    "types": [
+      "short",
+      "series",
+      "interview"
+    ]
+  },
+  {
+    "query": "Kwadwo Sheldon Studios",
+    "country": "Ghana",
+    "types": [
+      "short",
+      "interview",
+      "documentary"
+    ]
+  },
+  {
+    "query": "Farmhouse Productions Ghana",
+    "country": "Ghana",
+    "types": [
+      "film",
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "Akabenezer Likee",
+    "country": "Ghana",
+    "types": [
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "Wode Maya",
+    "country": "Ghana",
+    "types": [
+      "documentary",
+      "short",
+      "interview"
+    ]
+  },
+  {
+    "query": "Abel Mutua",
+    "country": "Kenya",
+    "types": [
+      "film",
+      "short",
+      "series",
+      "interview"
+    ]
+  },
+  {
+    "query": "Phil It Productions Kenya",
+    "country": "Kenya",
+    "types": [
+      "film",
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "Njugush",
+    "country": "Kenya",
+    "types": [
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "Africa Uncensored",
+    "country": "Kenya",
+    "types": [
+      "documentary",
+      "short",
+      "interview"
+    ]
+  },
+  {
+    "query": "TUKO TV Kenya",
+    "country": "Kenya",
+    "types": [
+      "documentary",
+      "short",
+      "interview"
+    ]
+  },
+  {
+    "query": "Kansiime Anne",
+    "country": "Uganda",
+    "types": [
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "Wakaliwood",
+    "country": "Uganda",
+    "types": [
+      "film",
+      "short",
+      "documentary"
+    ]
+  },
+  {
+    "query": "Black Brain Pictures",
+    "country": "South Africa",
+    "types": [
+      "film",
+      "short",
+      "series"
+    ]
+  },
+  {
+    "query": "Lasizwe Dambuza",
+    "country": "South Africa",
+    "types": [
+      "short",
+      "series",
+      "interview"
+    ]
+  },
+  {
+    "query": "Ofentse Mwase Films",
+    "country": "South Africa",
+    "types": [
+      "film",
+      "short",
+      "music"
+    ]
+  },
+  {
+    "query": "Triggerfish Animation",
+    "country": "South Africa",
+    "types": [
+      "animation",
+      "short",
+      "documentary"
+    ]
+  },
+  {
+    "query": "Kugali Media",
+    "country": "Pan-African",
+    "types": [
+      "animation",
+      "short",
+      "documentary",
+      "interview"
+    ]
+  },
+  {
+    "query": "African Animation Network",
+    "country": "Pan-African",
+    "types": [
+      "animation",
+      "short",
+      "interview"
+    ]
+  },
+  {
+    "query": "Black Public Media",
+    "country": "African diaspora",
+    "types": [
+      "documentary",
+      "short",
+      "film",
+      "interview"
+    ]
+  },
+  {
+    "query": "AfroPoP PBS",
+    "country": "African diaspora",
+    "types": [
+      "documentary",
+      "short",
+      "film"
+    ]
+  },
+  {
+    "query": "Tayo Aina Films",
+    "country": "Pan-African",
+    "types": [
+      "documentary",
+      "short",
+      "interview"
+    ]
+  },
+  {
+    "query": "New Africa",
+    "country": "Pan-African",
+    "types": [
+      "documentary",
+      "short"
+    ]
+  },
+  {
+    "query": "African Biographics",
+    "country": "Pan-African",
+    "types": [
+      "documentary",
+      "short"
+    ]
+  },
+  {
+    "query": "Coke Studio Africa",
+    "country": "Pan-African",
+    "types": [
+      "music",
+      "short",
+      "interview"
+    ]
+  }
+]
