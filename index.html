@@ -3317,8 +3317,13 @@ function loadHomepageArtwork(element,m,onReady,onFailure){
 
       const width=element.naturalWidth||0;
       const height=element.naturalHeight||0;
+      const ratio=height>0?width/height:0;
 
-      if(width<640 || height<300){
+      if(
+        width<960 ||
+        height<400 ||
+        ratio<1.45
+      ){
         tryNext();
         return;
       }
