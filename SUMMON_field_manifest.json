@@ -1,30 +1,34 @@
 {
   "name": "SUMMON AFRICA",
   "ready": true,
-  "count": 11,
-  "playable": 11,
+  "count": 2927,
+  "playable": 2927,
   "dim": 72,
   "dimension": 72,
   "use_freq": true,
-  "embedding_method": "local-hash-72d",
+  "embedding_method": "arbiter-72d",
   "types": {
-    "film": 7,
-    "documentary": 2,
-    "short": 2
+    "film": 418,
+    "documentary": 24,
+    "short": 2219,
+    "series": 195,
+    "interview": 33,
+    "music": 5,
+    "animation": 33
   },
   "providers": {
-    "youtube": 11
+    "youtube": 2927
   },
   "sources": {
     "youtube": {
-      "count": 11,
-      "units": 11
+      "count": 2927,
+      "units": 2927
     }
   },
-  "units": 11,
-  "built_at": "2026-07-25T04:21:26Z",
-  "updated_at": "2026-07-25T04:21:26Z",
-  "seconds": 0.005,
+  "units": 2927,
+  "built_at": "2026-07-25T16:11:49Z",
+  "updated_at": "2026-07-25T16:11:49Z",
+  "seconds": 524.706,
   "metadata_file": "SUMMON_field_metadata.json",
   "metadata_files": [
     "SUMMON_field_metadata.json"

@@ -397,14 +397,18 @@ def main() -> int:
     parser.add_argument("--tmdb-key", default=os.getenv("TMDB_API_KEY", DEFAULT_TMDB_KEY))
     parser.add_argument("--skip-tmdb", action="store_true")
     parser.add_argument("--force-hash", action="store_true")
+    parser.add_argument("--min-records", type=int, default=int(os.getenv("SUMMON_AFRICA_MIN_RECORDS", "500")))
     args = parser.parse_args()
 
     started = time.time()
     imported = ROOT / "data/imported.jsonl"
     manual = ROOT / "data/manual.jsonl"
     records = load_records([ROOT / "data/seed.json", imported, manual])
-    if not records:
-        raise SystemExit("No playable records found.")
+    if len(records) < args.min_records:
+        raise SystemExit(
+            f"Refusing to build a production field with only {len(records):,} records; "
+            f"minimum is {args.min_records:,}. Run ingestion first."
+        )
 
     matched = hydrate_tmdb(
         records,

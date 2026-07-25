@@ -331,6 +331,7 @@ def main() -> int:
     parser.add_argument("--workers", type=int, default=5)
     parser.add_argument("--max-records", type=int, default=1800)
     parser.add_argument("--output", default=str(ROOT / "data/imported.jsonl"))
+    parser.add_argument("--min-records", type=int, default=int(os.getenv("SUMMON_AFRICA_MIN_RECORDS", "500")))
     parser.add_argument("--force-ytdlp", action="store_true")
     args = parser.parse_args()
 
@@ -366,9 +367,14 @@ def main() -> int:
     ordered = ordered[: args.max_records]
     write_rows(Path(args.output), ordered)
     print(f"wrote {len(ordered):,} playable records → {args.output}")
-    if len(ordered) < 100:
-        print("WARN catalog is below 100 records; rerun with a YouTube API key or more source channels.", file=sys.stderr)
-    return 0 if ordered else 2
+    if len(ordered) < args.min_records:
+        print(
+            f"ERROR catalog contains only {len(ordered):,} records; production minimum is {args.min_records:,}.",
+            file=sys.stderr,
+        )
+        print("Set YOUTUBE_API_KEY or YTDLP_COOKIES_BROWSER and rerun.", file=sys.stderr)
+        return 3
+    return 0
 
 
 if __name__ == "__main__":

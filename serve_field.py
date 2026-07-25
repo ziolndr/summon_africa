@@ -332,6 +332,11 @@ def main() -> int:
     FIELD = Path(args.field_dir)
     EMBED_URL = args.embed_url
     STATE = State()
+    minimum = int(os.getenv("SUMMON_AFRICA_MIN_RECORDS", "1"))
+    if len(STATE.meta) < minimum:
+        raise SystemExit(
+            f"Refusing to serve {len(STATE.meta):,} records; production minimum is {minimum:,}."
+        )
     print(
         f"SUMMON AFRICA · http://{args.host}:{args.port} · "
         f"{len(STATE.meta):,} playable records · {STATE.manifest.get('embedding_method')}"
