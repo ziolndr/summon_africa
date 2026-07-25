@@ -1457,6 +1457,190 @@ body.playing #projector{display:block}
 }
 </style>
 
+
+<style id="summon-africa-clean-fixed-home-v8">
+#landing .canvas img{
+  opacity:0!important;
+  transition:opacity 2.4s cubic-bezier(.22,.61,.36,1)!important;
+  will-change:opacity,transform!important;
+  backface-visibility:hidden!important;
+  transform:translateZ(0) scale(1.02);
+}
+
+#landing .canvas img.on{
+  opacity:1!important;
+}
+
+#landing .head{
+  left:var(--pad)!important;
+  right:auto!important;
+  bottom:clamp(46px,6vh,70px)!important;
+  width:min(760px,calc(100vw - (var(--pad) * 2)))!important;
+  height:auto!important;
+  gap:15px!important;
+  transform:none!important;
+}
+
+#landing .hero-kicker{
+  display:none!important;
+}
+
+#landing .hero-copy{
+  max-width:760px!important;
+}
+
+#landing .title{
+  display:block!important;
+  position:static!important;
+  max-width:none!important;
+  margin:0!important;
+  font-size:clamp(46px,5.2vw,78px)!important;
+  line-height:.9!important;
+  letter-spacing:-.035em!important;
+}
+
+#landing .hero-description{
+  max-width:56ch!important;
+  margin-top:12px!important;
+  font-size:clamp(16px,1.2vw,20px)!important;
+  line-height:1.32!important;
+}
+
+#landing #searchForm{
+  position:static!important;
+  width:100%!important;
+  margin:0!important;
+}
+
+#landing .search-label{
+  margin:0 0 5px!important;
+  font-size:8px!important;
+  letter-spacing:.19em!important;
+}
+
+#landing .line{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:14px!important;
+  width:100%!important;
+  height:52px!important;
+  min-height:52px!important;
+  max-height:52px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-bottom:1px solid rgba(246,244,239,.78)!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+#landing .line:focus-within{
+  border-bottom-color:#fff!important;
+  background:transparent!important;
+}
+
+#landing #query{
+  display:block!important;
+  width:100%!important;
+  height:44px!important;
+  min-height:44px!important;
+  max-height:44px!important;
+  margin:0!important;
+  padding:7px 0 5px!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  resize:none!important;
+  white-space:nowrap!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  border:0!important;
+  background:transparent!important;
+  font-size:clamp(19px,1.8vw,27px)!important;
+  line-height:1.2!important;
+  scrollbar-width:none!important;
+}
+
+#landing #query::-webkit-scrollbar{
+  display:none!important;
+}
+
+#landing #query::placeholder{
+  white-space:nowrap!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+}
+
+#landing .icon{
+  display:none!important;
+}
+
+#landing .send{
+  display:flex!important;
+  width:auto!important;
+  height:44px!important;
+  margin:0!important;
+  padding:0 2px 0 12px!important;
+  border:0!important;
+  background:transparent!important;
+  color:var(--white)!important;
+  box-shadow:none!important;
+  font-size:9px!important;
+  letter-spacing:.18em!important;
+}
+
+#landing .send:hover{
+  background:transparent!important;
+  opacity:.68!important;
+}
+
+#landing .formats,
+#landing .summon-entry-cue{
+  display:none!important;
+}
+
+#landing .status-corner #status{
+  min-width:0!important;
+}
+
+@media(max-width:720px){
+  #landing .head{
+    bottom:max(30px,env(safe-area-inset-bottom))!important;
+    gap:13px!important;
+  }
+
+  #landing .title{
+    font-size:clamp(39px,11vw,58px)!important;
+  }
+
+  #landing .hero-description{
+    max-width:34ch!important;
+    margin-top:10px!important;
+    font-size:15px!important;
+  }
+
+  #landing .line{
+    height:48px!important;
+    min-height:48px!important;
+    max-height:48px!important;
+  }
+
+  #landing #query{
+    height:41px!important;
+    min-height:41px!important;
+    max-height:41px!important;
+    font-size:18px!important;
+  }
+
+  #landing .send{
+    height:41px!important;
+    padding-left:8px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -1485,8 +1669,8 @@ body.playing #projector{display:block}
   <div class="head">
     <div class="hero-copy">
       <span class="hero-kicker">Playable African film and video</span>
-      <h1 class="title">Watch African films,<br><i>shorts, documentaries, and series.</i></h1>
-      <p class="hero-description">Type what you want to watch. SUMMON searches playable African films and videos and opens every result here.</p>
+      <h1 class="title">Watch African films.</h1>
+      <p class="hero-description">Search films, shorts, documentaries, and series. Every result plays here.</p>
     </div>
 
     <form id="searchForm" aria-label="Search playable African films and videos">
@@ -1955,7 +2139,7 @@ function statusLine(p){
 const setStatus=t=>{
   const el=$('#status');
   const loader=$('#statusLoader');
-  if(el)el.textContent=t;
+  if(el)el.textContent=/ready/i.test(String(t||''))?'ready':t;
   if(loader){
     const s=String(t||'').toLowerCase();
     const loading=!s.includes('ready')&&s.trim()!=='';
@@ -2907,13 +3091,33 @@ function paintCover(){
     lastId=m.tmdbId;return m;
   };
   const first=pick();if(first)swap(first);
-  coverTimer=setInterval(()=>{const m=pick();if(m)swap(m)},7000);
+  coverTimer=setInterval(()=>{const m=pick();if(m)swap(m)},9000);
 }
 function swap(m){
   const a=$('#coverA'),b=$('#coverB');
-  const i=flip%2===0?a:b, o=flip%2===0?b:a;
-  i.onload=()=>{i.classList.add('on');o.classList.remove('on')};
-  setImageCandidates(i,artworkCandidates(m,'hero'));
+  if(!a||!b)return;
+
+  const incoming=flip%2===0?a:b;
+  const outgoing=flip%2===0?b:a;
+  const candidates=artworkCandidates(m,'hero');
+
+  const reveal=()=>{
+    requestAnimationFrame(()=>{
+      incoming.classList.add('on');
+
+      requestAnimationFrame(()=>{
+        outgoing.classList.remove('on');
+      });
+    });
+  };
+
+  if(typeof setImageCandidates==='function'){
+    setImageCandidates(incoming,candidates,reveal);
+  }else{
+    incoming.onload=reveal;
+    incoming.src=backdrop(m,'original');
+  }
+
   flip++;
 }
 
