@@ -4493,6 +4493,7 @@ function startTW(){}   /* typewriter retired — the landing demo carries the li
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 function voice(btnSel,targetSel){
   const btn=$(btnSel),t=$(targetSel);
+  if(!btn||!t)return;
   if(!SR){btn.hidden=true;return}
   btn.onclick=()=>{
     const rec=new SR();rec.lang='en-US';rec.interimResults=true;
