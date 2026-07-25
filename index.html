@@ -1641,6 +1641,23 @@ body.playing #projector{display:block}
 }
 </style>
 
+
+<style id="summon-africa-real-homepage-art-v9">
+#landing .canvas img{
+  opacity:0!important;
+  transition:
+    opacity 2.4s cubic-bezier(.22,.61,.36,1),
+    transform 34s ease-in-out!important;
+  will-change:opacity,transform!important;
+  backface-visibility:hidden!important;
+  transform:translateZ(0) scale(1.02);
+}
+
+#landing .canvas img.on{
+  opacity:1!important;
+}
+</style>
+
 </head>
 <body>
 
@@ -3078,30 +3095,99 @@ async function loadCorpus(){
 
 /* ═══════ COVER ═══════ */
 let pool=[],ci=0,flip=0,coverTimer=null;
-function paintCover(){
-  const usable=cs.movies.filter(m=>m.backdropPath||m.posterPath||m.imageUrl);
-  if(usable.length<3)return;
-  if(coverTimer)return;
-  let lastId=null;
-  const pick=()=>{
-    const u=cs.movies.filter(m=>m.backdropPath||m.posterPath||m.imageUrl);           // read live — grows as tiers load
-    if(!u.length)return null;
-    let m,t=0;
-    do{m=u[Math.floor(Math.random()*u.length)];t++}while(u.length>1&&m.tmdbId===lastId&&t<8);
-    lastId=m.tmdbId;return m;
-  };
-  const first=pick();if(first)swap(first);
-  coverTimer=setInterval(()=>{const m=pick();if(m)swap(m)},9000);
-}
-function swap(m){
-  const a=$('#coverA'),b=$('#coverB');
-  if(!a||!b)return;
+function homepageBackdropSource(m){
+  const raw=String(
+    m?.backdropPath ||
+    m?.backdrop_path ||
+    ''
+  ).trim();
 
-  const incoming=flip%2===0?a:b;
-  const outgoing=flip%2===0?b:a;
-  const candidates=artworkCandidates(m,'hero');
+  if(!raw)return '';
+
+  if(/^data:/i.test(raw))return '';
+
+  if(/placeholder|fallback|default|blank|missing|no[-_ ]?image/i.test(raw)){
+    return '';
+  }
+
+  if(/^(https?:|blob:)/i.test(raw)){
+    return raw;
+  }
+
+  return img(raw,'original');
+}
+
+function homepageHasBackdrop(m){
+  return Boolean(homepageBackdropSource(m));
+}
+
+function paintCover(){
+  const usable=cs.movies.filter(homepageHasBackdrop);
+
+  if(!usable.length)return;
+  if(coverTimer)return;
+
+  let lastSource='';
+
+  const pick=()=>{
+    const available=cs.movies.filter(homepageHasBackdrop);
+
+    if(!available.length)return null;
+
+    let selected=null;
+    let source='';
+    let attempts=0;
+
+    do{
+      selected=available[Math.floor(Math.random()*available.length)];
+      source=homepageBackdropSource(selected);
+      attempts++;
+    }while(
+      available.length>1 &&
+      source===lastSource &&
+      attempts<12
+    );
+
+    lastSource=source;
+    return selected;
+  };
+
+  const first=pick();
+
+  if(first){
+    swap(first);
+  }
+
+  coverTimer=setInterval(()=>{
+    const next=pick();
+
+    if(next){
+      swap(next);
+    }
+  },9000);
+}
+
+function swap(m){
+  const source=homepageBackdropSource(m);
+
+  if(!source)return;
+
+  const first=$('#coverA');
+  const second=$('#coverB');
+
+  if(!first||!second)return;
+
+  const incoming=flip%2===0?first:second;
+  const outgoing=flip%2===0?second:first;
+
+  let revealed=false;
 
   const reveal=()=>{
+    if(revealed)return;
+    if(!incoming.naturalWidth||!incoming.naturalHeight)return;
+
+    revealed=true;
+
     requestAnimationFrame(()=>{
       incoming.classList.add('on');
 
@@ -3111,11 +3197,18 @@ function swap(m){
     });
   };
 
-  if(typeof setImageCandidates==='function'){
-    setImageCandidates(incoming,candidates,reveal);
+  incoming.onload=reveal;
+
+  incoming.onerror=()=>{
+    incoming.onload=null;
+    incoming.onerror=null;
+    incoming.classList.remove('on');
+  };
+
+  if(incoming.src===source && incoming.complete){
+    reveal();
   }else{
-    incoming.onload=reveal;
-    incoming.src=backdrop(m,'original');
+    incoming.src=source;
   }
 
   flip++;
@@ -3136,7 +3229,12 @@ function startLeader(q){
   clearInterval(tickTimer);
   tickTimer=setInterval(()=>{$('#elapsed').textContent=elapsedStr()},100);
   // slow, calm crossfade through a few stills — never flashing, never frozen
-  const pool=cs.movies.filter(m=>m.backdropPath||m.posterPath||m.imageUrl||m.provider_id).sort(()=>Math.random()-.5).slice(0,10).map(m=>artworkCandidates(m,'hero')[0]).filter(Boolean);
+  const pool=cs.movies
+    .filter(homepageHasBackdrop)
+    .sort(()=>Math.random()-.5)
+    .slice(0,10)
+    .map(homepageBackdropSource)
+    .filter(Boolean);
   clearInterval(ambTimer);
   if(pool.length){
     ai=0;af=0;
