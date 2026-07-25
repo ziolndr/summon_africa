@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0A0A09">
-<title>SUMMON AFRICA — watch African stories by meaning</title>
+<title>SUMMON AFRICA — watch African films, shorts, documentaries, and series</title>
 <meta name="description" content="Watch playable African films, shorts, documentaries, series, animation, music, and conversations by meaning.">
 <link rel="icon" href="./summon-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="./summon-favicon.ico" sizes="any">
@@ -1267,6 +1267,196 @@ body.playing #projector{display:block}
 }
 </style>
 
+
+<style id="summon-africa-literal-home-v7">
+#landing .head{
+  position:absolute!important;
+  z-index:8!important;
+  left:var(--pad)!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:clamp(42px,7vh,78px)!important;
+  width:min(920px,calc(100vw - (var(--pad) * 2)))!important;
+  height:auto!important;
+  transform:none!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:clamp(17px,2.6vh,28px)!important;
+  overflow:visible!important;
+}
+
+#landing .hero-copy{
+  display:block!important;
+  max-width:900px!important;
+}
+
+#landing .hero-kicker{
+  display:block!important;
+  margin-bottom:12px!important;
+  font-family:var(--mono)!important;
+  font-size:clamp(9px,.75vw,11px)!important;
+  line-height:1.2!important;
+  letter-spacing:.22em!important;
+  text-transform:uppercase!important;
+  color:rgba(246,244,239,.74)!important;
+  text-shadow:0 2px 20px rgba(0,0,0,.78)!important;
+}
+
+#landing .title{
+  display:block!important;
+  position:static!important;
+  margin:0!important;
+  max-width:14ch!important;
+  font-family:var(--serif)!important;
+  font-size:clamp(45px,5.9vw,94px)!important;
+  line-height:.88!important;
+  letter-spacing:-.035em!important;
+  color:var(--white)!important;
+  text-shadow:0 4px 44px rgba(0,0,0,.8)!important;
+}
+
+#landing .hero-description{
+  display:block!important;
+  max-width:58ch!important;
+  margin-top:17px!important;
+  font-family:var(--serif)!important;
+  font-size:clamp(17px,1.3vw,22px)!important;
+  line-height:1.38!important;
+  color:rgba(246,244,239,.9)!important;
+  text-shadow:0 2px 25px rgba(0,0,0,.82)!important;
+}
+
+#landing #searchForm{
+  display:block!important;
+  position:static!important;
+  width:min(760px,100%)!important;
+}
+
+#landing .search-label{
+  display:block!important;
+  margin-bottom:9px!important;
+  font-family:var(--mono)!important;
+  font-size:clamp(9px,.7vw,11px)!important;
+  line-height:1.2!important;
+  letter-spacing:.18em!important;
+  text-transform:uppercase!important;
+  color:rgba(246,244,239,.76)!important;
+}
+
+#landing .line{
+  display:flex!important;
+  align-items:center!important;
+  gap:14px!important;
+  min-height:64px!important;
+  margin:0!important;
+  padding:10px 11px 10px 18px!important;
+  border:1px solid rgba(246,244,239,.62)!important;
+  background:rgba(8,8,7,.3)!important;
+  box-shadow:0 14px 55px rgba(0,0,0,.3)!important;
+  backdrop-filter:blur(9px)!important;
+  -webkit-backdrop-filter:blur(9px)!important;
+}
+
+#landing #query{
+  display:block!important;
+  flex:1 1 auto!important;
+  width:100%!important;
+  min-width:0!important;
+  min-height:1.4em!important;
+  max-height:4.8em!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  resize:none!important;
+  border:0!important;
+  background:transparent!important;
+  font-family:var(--serif)!important;
+  font-size:clamp(20px,2vw,31px)!important;
+  line-height:1.18!important;
+  letter-spacing:-.012em!important;
+  color:var(--white)!important;
+  caret-color:var(--white)!important;
+}
+
+#landing #query::placeholder{
+  color:rgba(246,244,239,.72)!important;
+  opacity:1!important;
+}
+
+#landing .send{
+  display:flex!important;
+  flex:0 0 auto!important;
+  width:auto!important;
+  height:44px!important;
+  padding:0 15px!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:13px!important;
+  border:0!important;
+  background:var(--white)!important;
+  color:var(--film)!important;
+  font-family:var(--mono)!important;
+  font-size:10px!important;
+  line-height:1!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+
+#landing .send b{
+  font-size:17px!important;
+  font-weight:400!important;
+}
+
+#landing .formats{
+  display:block!important;
+  position:static!important;
+  margin:0!important;
+  font-family:var(--mono)!important;
+  font-size:clamp(8px,.65vw,10px)!important;
+  line-height:1.35!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+  color:rgba(246,244,239,.48)!important;
+}
+
+@media(max-width:720px){
+  #landing .head{
+    bottom:max(28px,env(safe-area-inset-bottom))!important;
+    gap:16px!important;
+  }
+
+  #landing .title{
+    max-width:12ch!important;
+    font-size:clamp(36px,11vw,58px)!important;
+    line-height:.9!important;
+  }
+
+  #landing .hero-description{
+    margin-top:13px!important;
+    max-width:34ch!important;
+    font-size:16px!important;
+  }
+
+  #landing .line{
+    min-height:58px!important;
+    padding:9px 9px 9px 14px!important;
+  }
+
+  #landing #query{
+    font-size:19px!important;
+  }
+
+  #landing .send{
+    height:40px!important;
+    padding:0 12px!important;
+  }
+
+  #landing .send span{
+    display:none!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -1293,17 +1483,33 @@ body.playing #projector{display:block}
   </div>
 
   <div class="head">
-    <h1 class="title">Search African stories by meaning</h1>
-    <form id="searchForm">
+    <div class="hero-copy">
+      <span class="hero-kicker">Playable African film and video</span>
+      <h1 class="title">Watch African films,<br><i>shorts, documentaries, and series.</i></h1>
+      <p class="hero-description">Type what you want to watch. SUMMON searches playable African films and videos and opens every result here.</p>
+    </div>
+
+    <form id="searchForm" aria-label="Search playable African films and videos">
+      <label class="search-label" for="query">What do you want to watch?</label>
+
       <div class="line">
-        <textarea id="query" rows="1" spellcheck="false" autocomplete="off" inputmode="search" placeholder=""></textarea>
-        <button type="button" class="icon" id="voiceBtn" aria-label="Dictate">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14.25c1.85 0 3.2-1.35 3.2-3.2V6.2C15.2 4.35 13.85 3 12 3S8.8 4.35 8.8 6.2v4.85c0 1.85 1.35 3.2 3.2 3.2Z"/><path d="M5.75 10.5c0 3.55 2.55 6.05 6.25 6.05s6.25-2.5 6.25-6.05"/><path d="M12 16.55V21"/><path d="M8.6 21h6.8"/></svg>
+        <textarea
+          id="query"
+          rows="1"
+          spellcheck="false"
+          autocomplete="off"
+          inputmode="search"
+          placeholder=""
+        ></textarea>
+
+        <button type="submit" class="send" aria-label="Search">
+          <span>Search</span>
+          <b>→</b>
         </button>
-        <button type="submit" class="send" aria-label="Run summon">→</button>
       </div>
     </form>
-    <p class="formats">Films · Shorts · Documentaries · Series · Animation</p>
+
+    <p class="formats">Films · Shorts · Documentaries · Series · Animation · Experimental</p>
   </div>
 
   <div class="corner br status-corner"><span class="status-loader" id="statusLoader" aria-hidden="true"></span><span class="lbl" id="status">loading</span></div>
